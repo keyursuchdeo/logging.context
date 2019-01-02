@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp />
+                <pattern>
+                    <pattern>
+                        {
+                        "@hostname":        "%property{HOSTNAME}",
+                        "@vertical":        "${DRP_CF_VERTICAL}",
+                        "@type":            "service",
+                        "@service-name":    "${DRP_CF_SERVICE}-${DRP_CF_STAGE}",
+                        "@service-version": "${DRP_CF_VERSION}",
+                        "@trace-id":        "%X{traceId}",
+                        "@country":        "%X{country}",
+                        "@retention":       "business",
+                        "thread":           "%thread",
+                        "logger":           "%logger",
+                        "log-level":        "%level",
+                        "message":          "%message - %exception{10}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+    <logger name="akka" level="WARN" />
+    <logger name="io.netty" level="ERROR"/>
+    <logger name="kamon" level="WARN" />
+    <root level="INFO" >
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
