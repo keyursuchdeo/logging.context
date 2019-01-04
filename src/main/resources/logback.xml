@@ -7,11 +7,11 @@
                 <pattern>
                     <pattern>
                         {
-                        "@hostname":        "%property{HOSTNAME}",
                         "@vertical":        "${DRP_CF_VERTICAL}",
                         "@type":            "service",
                         "@service-name":    "${DRP_CF_SERVICE}-${DRP_CF_STAGE}",
                         "@service-version": "${DRP_CF_VERSION}",
+                        "@trace-name":        "%X{traceName}",
                         "@trace-id":        "%X{traceId}",
                         "@country":        "%X{country}",
                         "@retention":       "business",

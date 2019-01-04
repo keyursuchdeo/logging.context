@@ -34,5 +34,6 @@ case class AppLogger(clazz: Class[_]) {
   private def setContext(): Unit = {
     MDC.put("country", Tracer.currentContext.tags("country"))
     MDC.put("traceId", Tracer.currentContext.token)
+    MDC.put("traceName", Tracer.currentContext.name)
   }
 }
