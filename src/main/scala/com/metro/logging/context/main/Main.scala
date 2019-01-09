@@ -23,7 +23,7 @@ object Main extends App {
   val routes: Route = LoggingContextApi.getRoutes
   val logger = LoggerFactory.getLogger(this.getClass)
 
-  val host          = "localhost"
+  val host          = "0.0.0.0"
   val port          = 8080
   Http().bindAndHandle(routes, host, port)
   logger.info(s"Server online at http://$host:$port")

@@ -1,0 +1,5 @@
+FROM openjdk:8-slim 
+
+
+COPY ./target/scala-2.12/logging.context-assembly-0.1.jar /logging.context-assembly-0.1.jar
+CMD java -Xms512M -Xmx512M -jar logging.context-assembly-0.1.jar

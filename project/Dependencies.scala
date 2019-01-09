@@ -19,7 +19,7 @@ object Dependencies {
     val kamonCore = "io.kamon" %% "kamon-core" % kamonCoreV
     val kamonScala = "io.kamon" %% "kamon-scala" % kamonScalaV
     val kamonAkka = "io.kamon" %% "kamon-akka-2.5" % kamonAkkaV % "runtime"
-    val kamonAkkaHttp = "io.kamon" %% "kamon-akka-http" % kamonAkkaHttpV
+    val kamonAkkaHttp = "io.kamon" %% "kamon-akka-http" % kamonAkkaHttpV exclude("io.kamon", "kamon-akka-2.4_2.12")
     val kamonAutoweave = "io.kamon" %% "kamon-autoweave" % kamonAutoweaveV
   }
 

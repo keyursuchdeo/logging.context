@@ -2,7 +2,7 @@ package com.metro.logging.context.routes
 
 import akka.http.scaladsl.server.Directives.{handleExceptions, handleRejections, _}
 import akka.http.scaladsl.server._
-import ch.megard.akka.http.cors.CorsDirectives.cors
+//import ch.megard.akka.http.cors.CorsDirectives.cors
 import com.metro.logging.context.models.CountryKey
 import com.metro.logging.context.routes.TestLoggingContextRoutes.traceName
 
@@ -30,13 +30,13 @@ abstract class Api extends ApiHandlers {
 
   def getRoutes: Route = {
     val route =
-      cors() {
+      //cors() {
         handleRejections(validationsRejectionHandler) {
           handleExceptions(exceptionHandler) {
             new HealthCheckRoutes().route ~ wrappedRoutes
           }
         }
-      }
+      //}
     route
   }
 
